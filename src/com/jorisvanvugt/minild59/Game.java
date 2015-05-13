@@ -2,8 +2,8 @@ package com.jorisvanvugt.minild59;
 
 import com.jorisvanvugt.minild59.graphics.Bitmap;
 import com.jorisvanvugt.minild59.graphics.SpriteSheet;
+import com.jorisvanvugt.minild59.level.Level;
 import com.jorisvanvugt.minild59.level.entities.Player;
-import com.jorisvanvugt.minild59.level.tiles.Level;
 
 public class Game {
 	public final static int spriteSize = 16;
@@ -12,7 +12,7 @@ public class Game {
 	private Level level = new Level(64);
 
 	public Game() {
-		
+
 	}
 
 	public void update() {
