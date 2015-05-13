@@ -11,6 +11,13 @@ public class Bitmap {
 		this.pixels = new int[width * height];
 	}
 
+	public Bitmap(Bitmap bitmap) {
+		this.width = bitmap.width;
+		this.height = bitmap.height;
+		pixels = new int[width * height];
+		System.arraycopy(bitmap.pixels, 0, pixels, 0, width * height);
+	}
+
 	public void draw(Bitmap bitmap, int xOffset, int yOffset) {
 		for (int y = 0; y < bitmap.getHeight(); y++) {
 			int yPixel = yOffset + y;
@@ -36,6 +43,16 @@ public class Bitmap {
 		for (int i = 0; i < width * height; i++) {
 			pixels[i] = color;
 		}
+	}
+
+	public void flipHorizontal() {
+		Bitmap temp = new Bitmap(width, height);
+		for (int y = 0; y < height; y++) {
+			for (int x = 0; x < width; x++) {
+				temp.pixels[x + y * width] = pixels[width - x - 1 + y * width];
+			}
+		}
+		pixels = temp.pixels;
 	}
 
 	public int getWidth() {

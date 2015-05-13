@@ -34,7 +34,7 @@ public class Level {
 
 				int tileCoord = (xx / Game.spriteSize) + (yy / Game.spriteSize) * size;
 				int spriteCoord = (xx % Game.spriteSize) + (yy % Game.spriteSize) * Game.spriteSize;
-				if(spriteCoord < 0) // Otherwise it breaks when xOffset or yOffset < 0. It still doesn't fully work though.
+				if (spriteCoord < 0) // Otherwise it breaks when xOffset or yOffset < 0. It still doesn't fully work though.
 					continue;
 				bitmap.pixels[x + y * bitmap.getWidth()] = tiles[tileCoord].getSprite().pixels[spriteCoord];
 			}
