@@ -7,7 +7,7 @@ public class Bullet extends Entity {
 	public int xVel, yVel;
 	
 	public Bullet(int xVel, int yVel) {
-		sprite = SpriteManager.BULLET;
+		super();
 		this.xVel = xVel;
 		this.yVel = yVel;
 	}
@@ -16,6 +16,11 @@ public class Bullet extends Entity {
 	public void update() {
 		x += xVel;
 		y += yVel;
+	}
+
+	@Override
+	public void loadSprite() {
+		sprite = SpriteManager.BULLET;
 	}
 
 }

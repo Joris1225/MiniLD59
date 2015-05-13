@@ -9,12 +9,7 @@ import com.jorisvanvugt.minild59.models.Direction;
 
 public class Player extends Entity {
 	
-	private Bitmap[] sprites = {
-			SpriteManager.CHAR1_FACING_UP1, SpriteManager.CHAR1_FACING_UP2, SpriteManager.CHAR1_FACING_UP3,
-			SpriteManager.CHAR1_FACING_RIGHT1, SpriteManager.CHAR1_FACING_RIGHT2, SpriteManager.CHAR1_FACING_RIGHT3,
-			SpriteManager.CHAR1_FACING_DOWN1, SpriteManager.CHAR1_FACING_DOWN2, SpriteManager.CHAR1_FACING_DOWN3,
-			SpriteManager.CHAR1_FACING_LEFT1, SpriteManager.CHAR1_FACING_LEFT2, SpriteManager.CHAR1_FACING_LEFT3 
-	};
+	private Bitmap[] sprites;
 	
 	private static final int SPRITES_PER_ANIMATION = 3;
 	private static final int FRAMES_PER_ANIMATION = 30;
@@ -22,7 +17,7 @@ public class Player extends Entity {
 	private int animationState = 0;
 
 	public Player() {
-		sprite = sprites[0];
+		super();
 		x = 64 * 16 / 2;
 		y = 64 * 16 / 2;
 	}
@@ -71,6 +66,26 @@ public class Player extends Entity {
 	@Override
 	public void draw(Bitmap bitmap) {
 		bitmap.draw(sprite, Math.round(bitmap.getWidth() / 2 - sprite.getWidth() / 2), Math.round(bitmap.getHeight() / 2 - sprite.getHeight() / 2));
+	}
+
+	@Override
+	public void loadSprite() {
+		sprites = new Bitmap[12];
+		sprites[0] = SpriteManager.CHAR1_FACING_UP1;
+		sprites[1] = SpriteManager.CHAR1_FACING_UP2;
+		sprites[2] = SpriteManager.CHAR1_FACING_UP3;
+		sprites[3] = SpriteManager.CHAR1_FACING_RIGHT1;
+		sprites[4] = SpriteManager.CHAR1_FACING_RIGHT2;
+		sprites[5] = SpriteManager.CHAR1_FACING_RIGHT3;
+		sprites[6] = SpriteManager.CHAR1_FACING_DOWN1;
+		sprites[7] = SpriteManager.CHAR1_FACING_DOWN2;
+		sprites[8] = SpriteManager.CHAR1_FACING_DOWN3;
+		sprites[9] = SpriteManager.CHAR1_FACING_LEFT1;
+		sprites[10] = SpriteManager.CHAR1_FACING_LEFT2;
+		sprites[11] = SpriteManager.CHAR1_FACING_LEFT3;
+
+		sprite = sprites[0];
+		
 	}
 
 }

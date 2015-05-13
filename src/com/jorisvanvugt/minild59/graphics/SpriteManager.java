@@ -1,28 +1,43 @@
 package com.jorisvanvugt.minild59.graphics;
 
 public class SpriteManager {
-	public final static int spriteSize = 16;
-	//public final static SpriteSheet SPRITESHEET = new SpriteSheet("/spritesheet.png", spriteSize);
-	public final static SpriteSheet SPRITESHEET = new RandomSpriteSheet(spriteSize);
 
-	public final static Bitmap CHAR1_FACING_DOWN1 = SPRITESHEET.getSprite(0, 0);
-	public final static Bitmap CHAR1_FACING_DOWN2 = SPRITESHEET.getSprite(1, 0);
-	public final static Bitmap CHAR1_FACING_DOWN3 = SPRITESHEET.getSprite(2, 0);
-	public final static Bitmap CHAR1_FACING_RIGHT1 = SPRITESHEET.getSprite(3, 0);
-	public final static Bitmap CHAR1_FACING_RIGHT2 = SPRITESHEET.getSprite(4, 0);
-	public final static Bitmap CHAR1_FACING_RIGHT3 = SPRITESHEET.getSprite(5, 0);
-	public final static Bitmap CHAR1_FACING_UP1 = SPRITESHEET.getSprite(6, 0);
-	public final static Bitmap CHAR1_FACING_UP2 = SPRITESHEET.getSprite(7, 0);
-	public final static Bitmap CHAR1_FACING_UP3 = SPRITESHEET.getSprite(0, 1);
-	public final static Bitmap CHAR1_FACING_LEFT1 = CHAR1_FACING_RIGHT1.flipHorizontal();
-	public final static Bitmap CHAR1_FACING_LEFT2 = CHAR1_FACING_RIGHT2.flipHorizontal();
-	public final static Bitmap CHAR1_FACING_LEFT3 = CHAR1_FACING_RIGHT3.flipHorizontal();
-	public final static Bitmap BULLET = SPRITESHEET.getSprite(5, 3);
+	public static Bitmap CHAR1_FACING_DOWN1;
+	public static Bitmap CHAR1_FACING_DOWN2;
+	public static Bitmap CHAR1_FACING_DOWN3;
+	public static Bitmap CHAR1_FACING_RIGHT1;
+	public static Bitmap CHAR1_FACING_RIGHT2;
+	public static Bitmap CHAR1_FACING_RIGHT3;
+	public static Bitmap CHAR1_FACING_UP1;
+	public static Bitmap CHAR1_FACING_UP2;
+	public static Bitmap CHAR1_FACING_UP3;
+	public static Bitmap CHAR1_FACING_LEFT1;
+	public static Bitmap CHAR1_FACING_LEFT2;
+	public static Bitmap CHAR1_FACING_LEFT3;
+	public static Bitmap BULLET;
 	
-	public final static Bitmap FLOOR = SPRITESHEET.getSprite(7, 7);
-	public final static Bitmap BRICK1 = SPRITESHEET.getSprite(0, 6);
+	public static Bitmap FLOOR;
+	public static Bitmap BRICK1;
 
 	private SpriteManager() {
-
+		
+	}
+	
+	public static void loadSpriteSheet(SpriteSheet spriteSheet) {
+		CHAR1_FACING_DOWN1 = spriteSheet.getSprite(0, 0);
+		CHAR1_FACING_DOWN2 = spriteSheet.getSprite(1, 0);
+		CHAR1_FACING_DOWN3 = spriteSheet.getSprite(2, 0);
+		CHAR1_FACING_RIGHT1 = spriteSheet.getSprite(3, 0);
+		CHAR1_FACING_RIGHT2 = spriteSheet.getSprite(4, 0);
+		CHAR1_FACING_RIGHT3 = spriteSheet.getSprite(5, 0);
+		CHAR1_FACING_UP1 = spriteSheet.getSprite(6, 0);
+		CHAR1_FACING_UP2 = spriteSheet.getSprite(7, 0);
+		CHAR1_FACING_UP3 = spriteSheet.getSprite(0, 1);
+		CHAR1_FACING_LEFT1 = CHAR1_FACING_RIGHT1.flipHorizontal();
+		CHAR1_FACING_LEFT2 = CHAR1_FACING_RIGHT2.flipHorizontal();
+		CHAR1_FACING_LEFT3 = CHAR1_FACING_RIGHT3.flipHorizontal();
+		BULLET = spriteSheet.getSprite(5, 3);
+		FLOOR = spriteSheet.getSprite(4, 7);
+		BRICK1 = spriteSheet.getSprite(0, 6);
 	}
 }
