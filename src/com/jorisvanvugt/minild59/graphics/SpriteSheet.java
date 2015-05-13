@@ -11,18 +11,25 @@ public class SpriteSheet {
 	private int width;
 	private int height;
 	private int spriteSize;
+	protected String sheetURL;
 
-	public SpriteSheet(String filename, int spriteSize) {
+	public SpriteSheet(String sheetURL, int spriteSize) {
 		this.spriteSize = spriteSize;
+		this.sheetURL = sheetURL;
+		BufferedImage image = loadImage();
+		width = image.getWidth();
+		height = image.getHeight();
+		pixels = new int[width * height];
+		image.getRGB(0, 0, width, height, pixels, 0, width);
+	}
+	
+	protected BufferedImage loadImage() {
 		try {
-			BufferedImage image = ImageIO.read(SpriteSheet.class.getResource(filename));
-			width = image.getWidth();
-			height = image.getHeight();
-			pixels = new int[width * height];
-			image.getRGB(0, 0, width, height, pixels, 0, width);
-		} catch (IOException e) {
+			return ImageIO.read(SpriteSheet.class.getResource(sheetURL)); 
+		} catch(IOException e) {
 			e.printStackTrace();
 		}
+		return null;
 	}
 
 	/**

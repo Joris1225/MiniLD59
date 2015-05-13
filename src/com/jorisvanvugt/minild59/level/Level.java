@@ -1,7 +1,7 @@
 package com.jorisvanvugt.minild59.level;
 
-import com.jorisvanvugt.minild59.Game;
 import com.jorisvanvugt.minild59.graphics.Bitmap;
+import com.jorisvanvugt.minild59.graphics.SpriteManager;
 import com.jorisvanvugt.minild59.level.tiles.Tile;
 
 public class Level {
@@ -25,15 +25,15 @@ public class Level {
 	public void draw(Bitmap bitmap, int xOffset, int yOffset) {
 		for (int y = 0; y < bitmap.getHeight(); y++) {
 			int yy = y + yOffset;
-			if (yy / Game.spriteSize < 0 || yy / Game.spriteSize >= 64)
+			if (yy / SpriteManager.spriteSize < 0 || yy / SpriteManager.spriteSize >= 64)
 				continue;
 			for (int x = 0; x < bitmap.getWidth(); x++) {
 				int xx = x + xOffset;
-				if (xx / Game.spriteSize < 0 || xx / Game.spriteSize >= 64)
+				if (xx / SpriteManager.spriteSize < 0 || xx / SpriteManager.spriteSize >= 64)
 					continue;
 
-				int tileCoord = (xx / Game.spriteSize) + (yy / Game.spriteSize) * size;
-				int spriteCoord = (xx % Game.spriteSize) + (yy % Game.spriteSize) * Game.spriteSize;
+				int tileCoord = (xx / SpriteManager.spriteSize) + (yy / SpriteManager.spriteSize) * size;
+				int spriteCoord = (xx % SpriteManager.spriteSize) + (yy % SpriteManager.spriteSize) * SpriteManager.spriteSize;
 				if (spriteCoord < 0) // Otherwise it breaks when xOffset or yOffset < 0. It still doesn't fully work though.
 					continue;
 				bitmap.pixels[x + y * bitmap.getWidth()] = tiles[tileCoord].getSprite().pixels[spriteCoord];

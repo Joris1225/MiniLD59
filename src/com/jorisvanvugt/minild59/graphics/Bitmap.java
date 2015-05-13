@@ -45,14 +45,14 @@ public class Bitmap {
 		}
 	}
 
-	public void flipHorizontal() {
+	public Bitmap flipHorizontal() {
 		Bitmap temp = new Bitmap(width, height);
 		for (int y = 0; y < height; y++) {
 			for (int x = 0; x < width; x++) {
 				temp.pixels[x + y * width] = pixels[width - x - 1 + y * width];
 			}
 		}
-		pixels = temp.pixels;
+		return temp;
 	}
 
 	public int getWidth() {
